@@ -1,7 +1,7 @@
 <template>
   <v-card class="ma-4" elevation-10>
     <v-toolbar color="blue-grey darken-2" dark flat>
-      <v-toolbar-title>Kontor</v-toolbar-title>
+      <v-toolbar-title>Kontor Pinia Vuetify</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn color="white" outlined class="mr-4"> GitHub </v-btn>
       <template v-slot:extension>
@@ -15,7 +15,7 @@
     </v-toolbar>
     <v-tabs-items v-model="tab" class="mt-5">
       <v-tab-item v-for="item in items2" :key="item.position">
-        <component :is="item.component"></component>
+        <component :is="item.component" :money="money" />
       </v-tab-item>
     </v-tabs-items>
   </v-card>
@@ -40,7 +40,7 @@ export default {
         { component: FormTabVue, name: "Form", position: 0 },
         { component: DolarTabVue, name: "Dolar", position: 1 },
         { component: EuroTabVue, name: "Euro", position: 2 },
-        { component: OtherTabVue, name: "Other", position: 3 },
+        { component: OtherTabVue, name: "World rate", position: 3 },
       ],
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     };
