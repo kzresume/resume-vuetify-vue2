@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main class="blue-grey lighten-5">
-      <MainApp :money="money" /> 
+      <MainApp :money="country" /> 
     </v-main>
   </v-app>
 </template>
@@ -16,10 +16,16 @@ export default {
     MainApp,
   },
   data: () => ({
-    money:[],
+    money:{},
+    country:[],
   }),
   created(){
-    apiClient.get("").then(({data})=>{this.money = data})
+    apiClient.get("").then(({data})=>
+    {
+      this.money = data;
+      console.log(data[0].rates);
+      this.country=data[0].rates.map((value)=>value.currency)
+    })
   }
 };
 </script>
